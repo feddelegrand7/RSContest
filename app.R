@@ -20,7 +20,7 @@ color:#B18BEA;
                      
                      ")),
     
-bubbly(theme = "rladies"), 
+bubbly(color = "#1D1D1D"), 
 
 
 div(id = "title1", h1("Table Pivoting with pivta"), align = "center"),
@@ -29,11 +29,12 @@ div(id = "title1", h1("Table Pivoting with pivta"), align = "center"),
 br(),
 
 
+
 sidebarLayout(
     
     sidebarPanel(
         
-   helpText("The", a(href="https://github.com/feddelegrand7/pivta", "pivta") , "package allows you to implement a reporting table within a Shiny app. 
+   wellPanel("The", a(href="https://github.com/feddelegrand7/pivta", "pivta") , "package allows you to implement a reporting table within a Shiny app. 
    The table on the right is blank. By clicking ont the 'Connect' icon you can upload a csv/json file and work on it. 
    You can also provide a remote URL to a csv or json file. \
    Note that there is a size limit of 1MB.")
@@ -52,66 +53,61 @@ sidebarLayout(
 ),
 
 
-br(), br(), br(), br(),
+br(), br(), 
+
+h1("Reading the Data"),
 
 
-sidebarLayout(
-    
-    sidebarPanel(
-        
-    helpText("Now, we'll work on the", a(href = "https://www.imdb.com/title/tt0386676/", "Office US") ,  "(which is my favorite show)", 
+
+
+    wellPanel("Now, we'll work with the", a(href = "https://www.imdb.com/title/tt0386676/", "Office US") ,  "(which is my favorite show)", 
              a(href = "https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md", "rating data"), 
              "We need to prodive the URL of the csv file to 'dsource' argument of the 'pivta' function"), 
     
-    helpText("You can process more variables, work on the mean, median or even calculate your own measure. Try it out ! click on the 'Field' icon and
-             drag and drop !")
+    pre("pivta(dsource = 'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-17/office_ratings.csv')"),
     
-    
-    ),
+    wellPanel("You'll get this default layout. To create summary measures, you need to change the layout. 
+       Go to 'options' and choose 'classic form'. 
+       Then using the 'Fields' menu you can pivot/unpivot, summarize data, format cells and more"),
+
+    pivtaOutput(outputId = "pivta2"),
+
+
+
+br(), br(), 
+
+
+h1("Data Summary"),
+
+
+
+        
+        wellPanel("After manipulating the data, you can save a 'report.json' file 
+                  which stores the information related to the output. In the table on the right, 
+                  I've made some data wrangling beforehand, saved the report using the 'Save' icon and hosted it", 
+                  a(href = "https://gist.githubusercontent.com/feddelegrand7/b62a2c4da3c744ed6900894a627fdc7c/raw/524515b412eb4d8e2bae5c3807376602b7421a5e/The_Office_Report.json",
+                    "here"), " you can also save it locally but you'll need to upload it manually each time you run the app (using the 'Open' icon). Then using only the 'report' argument, we get this table which 
+                  retrieves the data and the performed analysis."), 
+        
+        pre("pivot(report = 'https://gist.githubusercontent.com/feddelegrand7/b62a2c4da3c744ed6900894a627fdc7c/raw/524515b412eb4d8e2bae5c3807376602b7421a5e/The_Office_Report.json')"),
     
    
-   mainPanel(
-       
-       
-       pivtaOutput(outputId = "pivta2")
-       
-       
+        pivtaOutput(outputId = "pivta3"), 
 
-   )
-   
-   
-   
-   
-), 
+
+        br(), br(),
+
+
+        wellPanel("Note that pivta is an R wrapper for the", a(href = "https://www.webdatarocks.com/", "WebDataRocks JavaScript library"),
+                  "you can red the documentation", a(href = "https://www.webdatarocks.com/doc/", "here.")),
 
 
 
-br(), br(), br(), br(),
+scroll_reveal(target = c("#pivta1", "#pivta2", "#pivta3"), 
+              duration = 3000, 
+              origin = "right"), 
 
-
-sidebarLayout(
-    
-    sidebarPanel(
-        
-        helpText()
-        
-        
-    ),
-    
-    
-    mainPanel(
-        
-        
-        pivtaOutput(outputId = "pivta3")
-        
-        
-        
-    )
-    
-    
-    
-    
-)
+use_reveal()
 
 
 
@@ -151,7 +147,7 @@ output$pivta3 <- renderPivta({
     
     
     pivta(
-        report = "https://gist.githubusercontent.com/feddelegrand7/b62a2c4da3c744ed6900894a627fdc7c/raw/ba0c73c8ccaa2f0edd99e0d404f3dd983e7ae8a4/The_Office_Report.json"
+        report = "https://gist.githubusercontent.com/feddelegrand7/b62a2c4da3c744ed6900894a627fdc7c/raw/524515b412eb4d8e2bae5c3807376602b7421a5e/The_Office_Report.json"
         )
     
     

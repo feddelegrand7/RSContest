@@ -10,6 +10,9 @@
                 "uniqueName": "season"
             },
             {
+                "uniqueName": "episode"
+            },
+            {
                 "uniqueName": "title"
             }
         ],
@@ -30,6 +33,7 @@
             {
                 "uniqueName": "episode",
                 "aggregation": "count",
+                "active": false,
                 "format": "46ha2ck7"
             }
         ],
