@@ -1,0 +1,94 @@
+{
+    "dataSource": {
+        "dataSourceType": "csv",
+        "filename": "https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-03-17/office_ratings.csv",
+        "fieldSeparator": ","
+    },
+    "slice": {
+        "rows": [
+            {
+                "uniqueName": "season"
+            }
+        ],
+        "columns": [
+            {
+                "uniqueName": "Measures"
+            }
+        ],
+        "measures": [
+            {
+                "uniqueName": "total_votes",
+                "aggregation": "sum"
+            },
+            {
+                "uniqueName": "imdb_rating",
+                "aggregation": "average"
+            },
+            {
+                "uniqueName": "episode",
+                "aggregation": "count",
+                "format": "46ha2ck7"
+            }
+        ],
+        "flatOrder": [
+            "air_date.Year",
+            "air_date.Month",
+            "air_date.Day",
+            "episode",
+            "imdb_rating",
+            "season",
+            "title",
+            "total_votes"
+        ]
+    },
+    "options": {
+        "grid": {
+            "type": "classic"
+        }
+    },
+    "conditions": [
+        {
+            "formula": "#value < 8.5",
+            "measure": "imdb_rating",
+            "format": {
+                "backgroundColor": "#EF9A9A",
+                "color": "#000000",
+                "fontFamily": "Arial",
+                "fontSize": "12px"
+            }
+        },
+        {
+            "formula": "#value >= 8.5",
+            "measure": "imdb_rating",
+            "format": {
+                "backgroundColor": "#B2DFDB",
+                "fontFamily": "Arial",
+                "fontSize": "12px"
+            }
+        }
+    ],
+    "formats": [
+        {
+            "name": "",
+            "thousandsSeparator": " ",
+            "decimalSeparator": ".",
+            "decimalPlaces": 2,
+            "currencySymbol": "",
+            "currencySymbolAlign": "left",
+            "nullValue": "",
+            "textAlign": "right",
+            "isPercent": false
+        },
+        {
+            "name": "46ha2ck7",
+            "thousandsSeparator": " ",
+            "decimalSeparator": ".",
+            "decimalPlaces": 0,
+            "currencySymbol": "",
+            "currencySymbolAlign": "left",
+            "nullValue": "",
+            "textAlign": "right",
+            "isPercent": false
+        }
+    ]
+}
