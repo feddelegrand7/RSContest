@@ -1,0 +1,12 @@
+name: RStudio-Table-Contest
+title: RStudio-Table-Contest
+username:
+account: ihaddaden-fodil
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2842330
+bundleId: 3647699
+url: https://ihaddaden-fodil.shinyapps.io/RStudio-Table-Contest/
+when: 1600560499.12886
+asMultiple: FALSE
+asStatic: FALSE
