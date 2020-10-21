@@ -40,7 +40,7 @@ sidebarLayout(sidebarPanel(
     "The",
     a(href = "https://github.com/feddelegrand7/pivta", target = "_blank", "pivta") ,
     "package allows you to implement a reporting table within a Shiny app.
-   The table on the right is blank. By clicking ont the 'Connect' icon you can upload a csv/json file and work on it.
+   The table on the right is blank. By clicking on the 'Connect' icon you can upload a csv/json file and work on it.
    You can also provide a remote URL to a csv/json file. \
    Note that there is a size limit of 1MB."
   )
@@ -62,7 +62,7 @@ wellPanel(
   "(which is my favorite show)",
   a(href = "https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-03-17/readme.md", target =
       "_blank", "rating data frame. "),
-  "We need to prodive the URL of the csv file to 'dsource' argument of the 'pivta' function"
+  "We need to prodive the URL of the csv file to the 'dsource' argument of the 'pivta' function"
 ),
 
 pre(
@@ -71,7 +71,7 @@ pre(
 br(),
 
 wellPanel(
-  "You'll get this default layout. To create summary measures, you need to change the it.
+  "You'll get this default layout. To create summary measures, you need to change it.
        Go to 'Options' and choose 'classic form'.
        Then using the 'Fields' menu you can pivot/unpivot table, summarize data, format cells and more"
 ),
